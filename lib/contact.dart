@@ -2,46 +2,6 @@ import 'package:flutter/material.dart';
 //import 'package:url_launcher/url_launcher.dart';
 import 'chatscreen.dart';
 
-class ContactList extends StatelessWidget {
-  ContactList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // Replace this with your contact list UI
-    return ListView.builder(
-      itemCount: contacts.length,
-      itemBuilder: (context, index) {
-        final contact = contacts[index];
-        return ListTile(
-          title: Text(contact.name),
-          subtitle: Text(contact.phoneNumber),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              IconButton(
-                icon: Icon(Icons.phone),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.message),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ChatScreen(contact: contact),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-          onTap: () {},
-        );
-      },
-    );
-  }
-}
-
 class CallHistory {
   final String contactName;
   final DateTime callTime;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'chatscreen.dart';
 import 'settingsscreen.dart';
-import 'package:kidsapp/contact.dart'; // Import the Contact class from the correct source
+import 'contact.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -25,7 +25,6 @@ class _ChatAppState extends State<ChatApp> {
       child: Text('Call History'),
     ),
     CallsScreen(callHistory: callHistory),
-    ContactList(),
   ];
 
   void openSettingsPage(BuildContext context) {
@@ -77,6 +76,46 @@ class _ChatAppState extends State<ChatApp> {
         selectedItemColor: Colors.deepPurpleAccent,
         onTap: _onItemTapped,
       ),
+    );
+  }
+}
+
+class ContactList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // Replace this with your contact list UI
+    return ListView.builder(
+      itemCount: contacts.length,
+      itemBuilder: (context, index) {
+        final contact = contacts[index];
+        return ListTile(
+          title: Text(contact.name),
+          subtitle: Text(contact.phoneNumber),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                icon: const Icon(Icons.phone),
+                onPressed: () {
+                  //phone button click here
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.message),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChatScreen(contact: contact),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+          onTap: () {},
+        );
+      },
     );
   }
 }
