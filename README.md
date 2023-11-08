@@ -1,1 +1,3 @@
-# KIDSAPP
+# kidsapp
+
+A new Flutter project.
