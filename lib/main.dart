@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'settingsscreen.dart';
 import 'package:kidsapp/contact.dart'; // Import the Contact class from the correct source
 
@@ -21,8 +22,9 @@ class _ChatAppState extends State<ChatApp> {
   final List<Widget> _screens = [
     ChatTab(),
     const Center(
-      child: Text('Call Screen'),
+      child: Text('Call History'),
     ),
+    CallsScreen(callHistory: callHistory),
     ContactList(),
   ];
 
@@ -64,7 +66,7 @@ class _ChatAppState extends State<ChatApp> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.call),
-            label: 'Call',
+            label: 'Calls',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.contacts),
@@ -75,6 +77,26 @@ class _ChatAppState extends State<ChatApp> {
         selectedItemColor: Colors.deepPurpleAccent,
         onTap: _onItemTapped,
       ),
+    );
+  }
+}
+
+class CallsScreen extends StatelessWidget {
+  final List<CallHistory> callHistory;
+
+  CallsScreen({required this.callHistory});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: callHistory.length,
+      itemBuilder: (context, index) {
+        final call = callHistory[index];
+        return ListTile(
+          title: Text(call.contactName),
+          subtitle: Text('Call Time: ${call.callTime}'),
+        );
+      },
     );
   }
 }

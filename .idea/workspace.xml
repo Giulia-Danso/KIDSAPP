@@ -34,3 +34,4 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
 </project>
+<uses-permission android:name="android.permission.CALL_PHONE" />

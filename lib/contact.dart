@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:url_launcher/url_launcher.dart';
+//import 'package:url_launcher/url_launcher.dart';
 import 'chatscreen.dart';
 
 class ContactList extends StatelessWidget {
@@ -20,10 +19,8 @@ class ContactList extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
-                icon: const Icon(Icons.phone),
-                onPressed: () {
-                  _makeCall(contact.phoneNumber);
-                },
+                icon: Icon(Icons.phone),
+                onPressed: () {},
               ),
               IconButton(
                 icon: const Icon(Icons.message),
@@ -38,56 +35,26 @@ class ContactList extends StatelessWidget {
               ),
             ],
           ),
-          onTap: () {
-            _showContactOptions(context, contact);
-          },
+          onTap: () {},
         );
       },
     );
   }
+}
 
-  void _showContactOptions(BuildContext context, Contact contact) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(contact.name),
-            content: Text('Phone: ${contact.phoneNumber}'),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  _makeCall(contact.phoneNumber);
-                },
-                child: const Text('Call'),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  _sendMessage(contact.phoneNumber);
-                },
-                child: const Text('Send Message'),
-              ),
-            ],
-          );
-        });
-  }
+class CallHistory {
+  final String contactName;
+  final DateTime callTime;
 
-  Future<void> _makeCall(String phoneNumber) async {
-    if (await canLaunch('tel:$phoneNumber')) {
-      await launch('tel:$phoneNumber');
-    } else {
-      print('Could not launch $phoneNumber');
-    }
-  }
+  CallHistory(this.contactName, this.callTime);
+}
 
-  Future<void> _sendMessage(String phoneNumber) async {
-    if (await canLaunch('sms:$phoneNumber')) {
-      await launch('sms:$phoneNumber');
-    } else {
-      print('Could not launch SMS to $phoneNumber');
-    }
-  }
+final List<CallHistory> callHistory = [];
+
+void addCalltoHistory(String contactName) {
+  final callTime = DateTime.now();
+  final call = CallHistory(contactName, callTime);
+  callHistory.add(call);
 }
 
 class Contact {
