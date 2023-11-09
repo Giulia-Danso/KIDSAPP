@@ -1,12 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:kidsapp/chatapp.dart';
 import 'loginpage.dart';
 import 'registration.dart';
-
+import 'dart:io' show Platform;
 import 'settingsscreen.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: MyApp(),
+    initialRoute: '/',
+    routes: {
+      '/': (context) => MyApp(),
+      '/login': (context) => LoginScreen(),
+      '/register': (context) => RegistrationScreen(),
+      '/chat': (context) => SettingsScreen(),
+      '/settings': (context) => SettingsScreen(),
+    },
+    onGenerateRoute: (settings) {
+      if (settings.name == "/register") {
+        return MaterialPageRoute(builder: (context) => RegistrationScreen());
+      } else if (settings.name == "/custom_route") {
+        return MaterialPageRoute(builder: (context) => CustomScreen());
+      }
+
+      return MaterialPageRoute(builder: (context) => NotFoundScreen());
+    },
   ));
 }
 
@@ -14,74 +31,34 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginScreen(),
+      home: ChatApp(),
     );
   }
 }
 
-class ChatApp extends StatefulWidget {
-  const ChatApp({Key? key}) : super(key: key);
-
-  @override
-  _ChatAppState createState() => _ChatAppState();
-}
-
-class _ChatAppState extends State<ChatApp> {
-  int _selectedIndex = 0;
-
-  final List<Widget> _screens = [
-    Material(child: LoginScreen()),
-    Material(child: RegistrationScreen()),
-  ];
-
-  void openSettingsPage(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => SettingsScreen(),
-      ),
-    );
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
+class CustomScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('KidsApp'),
-        backgroundColor: Colors.deepPurpleAccent,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              openSettingsPage(context);
-            },
-          ),
-        ],
+        title: const Text('Custom Route!'),
       ),
-      body: _screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.login),
-            label: 'Log In',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chat',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.call),
-            label: 'Calls',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.deepPurpleAccent,
-        onTap: _onItemTapped,
+      body: const Center(
+        child: Text('This is a custom route!'),
+      ),
+    );
+  }
+}
+
+class NotFoundScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Not FOund!'),
+      ),
+      body: const Center(
+        child: Text('Page not found!'),
       ),
     );
   }

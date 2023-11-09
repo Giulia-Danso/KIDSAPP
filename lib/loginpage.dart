@@ -1,4 +1,7 @@
-import 'main.dart';
+import 'package:kidsapp/registration.dart';
+
+import 'chatapp.dart';
+
 import 'package:flutter/material.dart';
 // Define LoginScreen widget
 
@@ -20,7 +23,7 @@ class LoginScreen extends StatelessWidget {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const ChatApp(),
+          builder: (context) => ChatApp(),
         ),
       );
     } else {
@@ -39,34 +42,41 @@ class LoginScreen extends StatelessWidget {
       home: Scaffold(
         // login screen content
         appBar: AppBar(
-          title: Text('Login'),
+          title: const Text('Login'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(
+              const TextField(
                 decoration: InputDecoration(
                   labelText: 'Username',
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 16.0),
-              TextField(
+              const SizedBox(height: 16.0),
+              const TextField(
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               ElevatedButton(
                 onPressed: () {
                   handleLogin(context);
                   print('Login button pressed');
                 },
-                child: Text('Login'),
+                child: const Text('Login'),
+              ),
+              const SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/register');
+                },
+                child: const Text('Register'),
               ),
             ],
           ),
