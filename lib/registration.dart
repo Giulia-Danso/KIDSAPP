@@ -1,4 +1,3 @@
-import 'main.dart';
 import 'package:flutter/material.dart';
 
 // Define LoginScreen widget
@@ -7,6 +6,8 @@ import 'package:flutter/material.dart';
 class RegistrationScreen extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  RegistrationScreen({super.key});
 
   void handleRegistration(BuildContext context) {
     // Perform registration logic here

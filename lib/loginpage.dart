@@ -1,13 +1,12 @@
 import 'main.dart';
 import 'package:flutter/material.dart';
-import 'registration.dart';
-import 'contact.dart';
 // Define LoginScreen widget
-import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  LoginScreen({super.key});
 
   void handleLogin(BuildContext context) {
     const String hardcodedUsername = 'User';
