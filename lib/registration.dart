@@ -59,6 +59,13 @@ class RegistrationScreen extends StatelessWidget {
               },
               child: const Text('Register'),
             ),
+            const SizedBox(height: 16.0),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Back'),
+            ),
           ],
         ),
       ),

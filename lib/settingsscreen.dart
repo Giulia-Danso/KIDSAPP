@@ -14,8 +14,8 @@ class SettingsScreen extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           children: [
             ListTile(
-              leading: Icon(Icons.account_balance_rounded),
-              title: Text('Account Settings'),
+              leading: const Icon(Icons.account_balance_rounded),
+              title: const Text('Account Settings'),
               onTap: () {
                 // add logic to handle accoount settings
                 Navigator.push(
@@ -26,10 +26,10 @@ class SettingsScreen extends StatelessWidget {
                 );
               },
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              leading: Icon(Icons.security),
-              title: Text('Security Settings'),
+              leading: const Icon(Icons.security),
+              title: const Text('Security Settings'),
               onTap: () {
                 // add logic to handle security settings
                 Navigator.push(

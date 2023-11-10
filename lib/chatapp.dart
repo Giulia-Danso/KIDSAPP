@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kidsapp/chat_screen.dart';
 import 'package:kidsapp/loginpage.dart';
 import 'package:kidsapp/settingsscreen.dart';
-
-import 'registration.dart';
 
 class ChatApp extends StatefulWidget {
   ChatApp({Key? key}) : super(key: key);
@@ -16,10 +15,8 @@ class _ChatAppState extends State<ChatApp> {
 
   final List<Widget> _screens = [
     Material(child: LoginScreen()),
+    Material(child: ChatScreen()),
     Material(child: Container()),
-    Material(
-      child: Container(),
-    )
   ];
 
   void openSettingsPage(BuildContext context) {

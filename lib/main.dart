@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kidsapp/chat_screen.dart';
 import 'package:kidsapp/chatapp.dart';
 import 'loginpage.dart';
 import 'registration.dart';
@@ -11,7 +12,7 @@ void main() {
       '/': (context) => MyApp(),
       '/login': (context) => LoginScreen(),
       '/register': (context) => RegistrationScreen(),
-      '/chat': (context) => ChatApp(),
+      '/chat': (context) => ChatScreen(),
       '/settings': (context) => SettingsScreen(),
     },
     onGenerateRoute: (settings) {
