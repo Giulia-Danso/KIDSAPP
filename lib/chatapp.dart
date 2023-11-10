@@ -16,7 +16,10 @@ class _ChatAppState extends State<ChatApp> {
 
   final List<Widget> _screens = [
     Material(child: LoginScreen()),
-    Material(child: RegistrationScreen()),
+    Material(child: Container()),
+    Material(
+      child: Container(),
+    )
   ];
 
   void openSettingsPage(BuildContext context) {

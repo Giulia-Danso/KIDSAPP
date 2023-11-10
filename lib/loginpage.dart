@@ -43,6 +43,7 @@ class LoginScreen extends StatelessWidget {
         // login screen content
         appBar: AppBar(
           title: const Text('Login'),
+          backgroundColor: Colors.purple,
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -74,7 +75,12 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 16.0),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/register');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RegistrationScreen(),
+                    ),
+                  );
                 },
                 child: const Text('Register'),
               ),

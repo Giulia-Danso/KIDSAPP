@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kidsapp/chatapp.dart';
 import 'loginpage.dart';
 import 'registration.dart';
-import 'dart:io' show Platform;
 import 'settingsscreen.dart';
 
 void main() {
