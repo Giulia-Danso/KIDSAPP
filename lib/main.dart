@@ -12,7 +12,7 @@ void main() {
       '/': (context) => MyApp(),
       '/login': (context) => LoginScreen(),
       '/register': (context) => RegistrationScreen(),
-      '/chat': (context) => SettingsScreen(),
+      '/chat': (context) => ChatApp(),
       '/settings': (context) => SettingsScreen(),
     },
     onGenerateRoute: (settings) {
@@ -55,7 +55,7 @@ class NotFoundScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Not FOund!'),
+        title: const Text('Not Found!'),
       ),
       body: const Center(
         child: Text('Page not found!'),
