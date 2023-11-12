@@ -1,21 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:kidsapp/receivedmessagelist.dart';
-
 import 'individualmessagescreen.dart';
+
+class ReceivedMessage {
+  final String senderName;
+  final String message;
+  final String profilePictureUrl;
+
+  ReceivedMessage({
+    required this.senderName,
+    required this.message,
+    required this.profilePictureUrl,
+  });
+}
 
 class MessageWidget extends StatelessWidget {
   final ReceivedMessage message;
+  final VoidCallback onMessageTap;
 
-  MessageWidget({required this.message});
+  MessageWidget({required this.message, required this.onMessageTap});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {
-        _navigateToIndividualMessage(context, message);
-      },
       leading: CircleAvatar(
-        backgroundImage: AssetImage(message.profilePicture),
+        backgroundImage: NetworkImage(message.profilePictureUrl),
       ),
       title: Row(
         children: [
