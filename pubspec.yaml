@@ -9,8 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  url_launcher: ^6.0.12 
- 
+  http: ^1.1.0
+  percent_indicator: ^4.2.3
+  shimmer: ^3.0.0
+  url_launcher: ^6.0.12
 
 dev_dependencies:
   flutter_test:
@@ -19,4 +21,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
- 
+  assets:
+    - lib/assets/glitters.jpeg

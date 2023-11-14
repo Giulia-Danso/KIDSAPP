@@ -6,32 +6,28 @@ import 'registration.dart';
 import 'settingsscreen.dart';
 
 void main() {
-  runApp(MaterialApp(
-    initialRoute: '/',
-    routes: {
-      '/': (context) => MyApp(),
-      '/login': (context) => LoginScreen(),
-      '/register': (context) => RegistrationScreen(),
-      '/chat': (context) => ChatScreen(),
-      '/settings': (context) => SettingsScreen(),
-    },
-    onGenerateRoute: (settings) {
-      if (settings.name == "/register") {
-        return MaterialPageRoute(builder: (context) => RegistrationScreen());
-      } else if (settings.name == "/custom_route") {
-        return MaterialPageRoute(builder: (context) => CustomScreen());
-      }
-
-      return MaterialPageRoute(builder: (context) => NotFoundScreen());
-    },
-  ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ChatApp(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => ChatApp(),
+        '/login': (context) => LoginScreen(),
+        '/register': (context) => RegistrationScreen(),
+        '/chat': (context) => ChatScreen(),
+        '/settings': (context) => SettingsScreen(),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == "/register") {
+        } else if (settings.name == "/custom_route") {
+          return MaterialPageRoute(builder: (context) => CustomScreen());
+        }
+
+        return MaterialPageRoute(builder: (context) => NotFoundScreen());
+      },
     );
   }
 }

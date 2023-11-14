@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kidsapp/chat_screen.dart';
+import 'package:kidsapp/chat_screen.dart' as ChatScreenPage;
 import 'package:kidsapp/loginpage.dart';
 import 'package:kidsapp/settingsscreen.dart';
+import 'contact_list.dart' as ContactListPage;
 
 class ChatApp extends StatefulWidget {
   ChatApp({Key? key}) : super(key: key);
@@ -15,8 +16,8 @@ class _ChatAppState extends State<ChatApp> {
 
   final List<Widget> _screens = [
     Material(child: LoginScreen()),
-    Material(child: ChatScreen()),
-    Material(child: Container()),
+    Material(child: ChatScreenPage.ChatScreen()),
+    Material(child: ContactListPage.ContactList()),
   ];
 
   void openSettingsPage(BuildContext context) {
@@ -62,8 +63,8 @@ class _ChatAppState extends State<ChatApp> {
             label: 'Chat',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.call),
-            label: 'Calls',
+            icon: Icon(Icons.numbers_outlined),
+            label: 'Contacts',
           ),
         ],
         currentIndex: _selectedIndex,

@@ -65,6 +65,9 @@ class PasswordChangeSection extends StatelessWidget {
                 ),
               );
             },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.deepPurpleAccent,
+            ),
             child: const Text('Change Password'),
           ),
         ],

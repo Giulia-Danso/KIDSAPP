@@ -10,13 +10,7 @@ void main() {
   );
 }
 
-class ChatScreen extends StatefulWidget {
-  @override
-  _ChatScreenState createState() => _ChatScreenState();
-}
-
-class _ChatScreenState extends State<ChatScreen> {
-  final TextEditingController _messageController = TextEditingController();
+class ChatScreen extends StatelessWidget {
   final List<ReceivedMessage> _messages = [
     ReceivedMessage(
       senderName: 'Christabel',
@@ -38,33 +32,18 @@ class _ChatScreenState extends State<ChatScreen> {
     ),
   ];
 
-  void _handleMessageTap(BuildContext context, ReceivedMessage message) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Reply to ${message.senderName}'),
-            content: const TextField(
-              decoration: InputDecoration(
-                hintText: 'Type your reply...',
-              ),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('Send'),
-              ),
-            ],
-          );
-        });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
         title: const Text('Chat Screen'),
       ),
       body: Column(
@@ -75,50 +54,12 @@ class _ChatScreenState extends State<ChatScreen> {
               onMessageTap: (message) => _handleMessageTap(context, message),
             ),
           ),
-          _buildMessageInput(),
         ],
       ),
     );
   }
 
-  Widget _buildMessageInput() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextField(
-              controller: _messageController,
-              decoration: const InputDecoration(
-                hintText: 'Type your message...',
-              ),
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.send),
-            onPressed: () {
-              _sendMessage();
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _sendMessage() {
-    String messageText = _messageController.text.trim();
-    if (messageText.isNotEmpty) {
-      ReceivedMessage newMessage = ReceivedMessage(
-        senderName: 'Me',
-        message: messageText,
-        profilePictureUrl:
-            'https://images.pexels.com/photos/6898856/pexels-photo-6898856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      );
-
-      setState(() {
-        _messages.add(newMessage);
-        _messageController.clear();
-      });
-    }
+  void _handleMessageTap(BuildContext context, ReceivedMessage message) {
+    // handle tap actions here,if needed
   }
 }

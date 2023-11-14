@@ -49,7 +49,12 @@ class ProfileSection extends StatelessWidget {
                 ),
               );
             },
-            child: const Text('Update Profile'),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.deepPurpleAccent,
+            ),
+            child: const Text(
+              'Update Profile',
+            ),
           ),
         ],
       ),

@@ -26,7 +26,7 @@ class _NotificationSettingsSectionState
           const SizedBox(height: 16.0),
           Row(
             children: [
-              const Text('Receive Notificatios'),
+              const Text('Receive Notifications'),
               const Spacer(),
               Switch(
                 value: receiveNotifications,
@@ -44,6 +44,7 @@ class _NotificationSettingsSectionState
                     ),
                   );
                 },
+                activeColor: Colors.deepPurpleAccent,
               ),
             ],
           )

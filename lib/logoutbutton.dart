@@ -20,10 +20,12 @@ class LogoutButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           //handle logout logic
-
           handleLogout(context);
         },
         child: const Text('Logout'),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.deepPurpleAccent,
+        ),
       ),
     );
   }
