@@ -40,6 +40,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.cyan,
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
         title: const Text('Login'),
@@ -50,7 +51,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'lib/images/KidsApp_logo.png',
+              'lib/assets/KidsAppnoback.png',
               width: 250.0,
               height: 250.0,
               fit: BoxFit.contain,
@@ -123,6 +124,12 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 24.0),
             ElevatedButton(
               onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfilePage(username: ''),
+                  ),
+                );
                 handleLogin(context);
                 print('Login button pressed');
               },
@@ -159,7 +166,7 @@ class LoginScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ForgotPasswordScreen(),
+                    builder: (context) => const ForgotPasswordScreen(),
                   ),
                 );
               },

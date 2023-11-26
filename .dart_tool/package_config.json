@@ -467,10 +467,10 @@
       "name": "kidsapp",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.1"
+      "languageVersion": "2.12"
     }
   ],
-  "generated": "2023-11-26T16:01:55.411257Z",
+  "generated": "2023-11-26T22:02:03.433878Z",
   "generator": "pub",
   "generatorVersion": "3.1.5"
 }

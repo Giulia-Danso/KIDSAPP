@@ -15,7 +15,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final TextEditingController repeatPasswordController =
       TextEditingController();
 
-  void handleResetPassword() {
+  void handleResetPassword(BuildContext context) {
     String email = emailController.text.trim();
     String newPassword = newPasswordController.text;
     String repeatPassword = repeatPasswordController.text;
@@ -23,6 +23,13 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     print('Reset Password :$email');
     print('New Password: $newPasswordController');
     print('RepeatPassword: $repeatPasswordController');
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Password reset successful for $email'),
+        duration: const Duration(seconds: 2),
+      ),
+    );
   }
 
   @override
@@ -115,7 +122,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             const SizedBox(height: 24.0),
             ElevatedButton(
               onPressed: () {
-                handleResetPassword();
+                handleResetPassword(context);
                 // Provide feedback to the user (confirmation message)
               },
               child: const Text('Reset Password'),
@@ -131,7 +138,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text('Back to Login'),
+              child: const Text(
+                'Back to Login',
+                style: TextStyle(
+                  color: Colors.deepPurpleAccent,
+                ),
+              ),
             ),
           ],
         ),
