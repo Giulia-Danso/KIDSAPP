@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kidsapp/chat_screen.dart';
 import 'package:kidsapp/chatapp.dart';
 import 'loginpage.dart';
 import 'registration.dart';
@@ -17,7 +16,6 @@ class MyApp extends StatelessWidget {
         '/': (context) => ChatApp(),
         '/login': (context) => LoginScreen(),
         '/register': (context) => RegistrationScreen(),
-        '/chat': (context) => ChatScreen(),
         '/settings': (context) => SettingsScreen(),
       },
       onGenerateRoute: (settings) {

@@ -14,6 +14,7 @@ dependencies:
   url_launcher: ^6.0.12
   http: ^0.13.3
   cached_network_image: ^3.3.0
+  image_picker: ^0.8.4+2
 
 dev_dependencies:
   flutter_test:
@@ -23,4 +24,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - lib/assets/glitters.jpeg
+    - lib/images/KidsApp_logo.png
+    - lib/images/avatar.jpg

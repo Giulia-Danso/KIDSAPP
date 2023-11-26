@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kidsapp/chat_screen.dart' as ChatScreenPage;
+
 import 'package:kidsapp/loginpage.dart';
 import 'package:kidsapp/settingsscreen.dart';
 import 'contact_list.dart' as ContactListPage;
@@ -16,7 +16,6 @@ class _ChatAppState extends State<ChatApp> {
 
   final List<Widget> _screens = [
     Material(child: LoginScreen()),
-    Material(child: ChatScreenPage.ChatScreen()),
     Material(child: ContactListPage.ContactList()),
   ];
 
@@ -55,16 +54,17 @@ class _ChatAppState extends State<ChatApp> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
+            backgroundColor: Colors.purpleAccent,
             icon: Icon(Icons.login),
             label: 'Log In',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chat',
+            icon: Icon(Icons.contact_page),
+            label: 'Contacts',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.numbers_outlined),
-            label: 'Contacts',
+            icon: Icon(Icons.chat_bubble),
+            label: 'Chats',
           ),
         ],
         currentIndex: _selectedIndex,

@@ -1,0 +1,4 @@
+#Sun Nov 26 00:14:03 CET 2023
+base.0=/Users/giuliadanso/Desktop/KidsApp/KidsApp Project/KIDSAPP/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
